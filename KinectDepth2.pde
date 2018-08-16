@@ -10,7 +10,7 @@ ControlP5 cp5;
 
 PImage camCapture;
 
-int slider = 80;
+int slider = 40;
 
 ArrayList<Contour> contours;
 ArrayList<Contour> polygons;
@@ -54,13 +54,14 @@ void draw() {
   noFill();  
   
    //Contour objects in the depth image
-
+  
   for (Contour contour : contours) { // Draw contours around objects
     contour.setPolygonApproximationFactor(1);
     if (contour.numPoints() > 50) {
       Rectangle box = contour.getBoundingBox();
       if (box.width > 20 && box.height > 20) {
-        ellipse(box.x + (box.x/2), box.y + (box.y/2), box.width, box.height);
+        
+        ellipse(box.x * 1.5, box.y * 1.5, box.width *1.5, box.height * 1.5);
       }
       
       stroke(0, 255, 0);
